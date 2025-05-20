@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>津波避難シミュレーション</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #00bfff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2em;
+        }
+        header p {
+            font-size: 1em;
+        }
+        footer {
+            background-color: white;
+            color: gray;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .container {
+            display: flex;
+            height: calc(100% - 100px);
+        }
+        .map-area {
+            flex: 2;
+            background-color: #f0f0f0;
+        }
+        .info-area {
+            flex: 1;
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>津波避難シミュレーション</h1>
+        <p>地図をクリックして最短経路を確認してください</p>
+    </header>
+
+    <div class="container">
+        <div class="map-area" id="map"></div>
+        <div class="info-area">
+            <h2>最短の避難先：</h2>
+            <p id="nearest-destination">クリックして確認してください</p>
+        </div>
+    </div>
+
+    <footer>
+        都市地域デザイン学研究室
+    </footer>
+
+    <script script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHARZBVr3rzCr_ejyqvMVxoU-V9VfKnfw&language=ja&callback=initMap">
+    </script>
+    <script src="./map_eva.js"></script>
+</body>
+</html>

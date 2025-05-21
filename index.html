@@ -2,86 +2,87 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>津波避難シミュレーション</title>
     <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-    }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
 
-    header {
-        background-color: #00bfff;
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
+        header {
+            background-color: #00bfff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-    header h1 {
-        font-size: 2em;
-    }
+        header h1 {
+            font-size: 2em;
+        }
 
-    header p {
-        font-size: 1em;
-    }
+        header p {
+            font-size: 1em;
+        }
 
-    footer {
-        background-color: white;
-        color: gray;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
+        footer {
+            background-color: white;
+            color: gray;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
 
-    .container {
-        display: flex;
-        height: calc(100% - 100px); /* ヘッダーとフッター分を除外 */
-    }
-
-    .map-area {
-        flex: 2;
-        background-color: #f0f0f0;
-    }
-
-    .info-area {
-        flex: 1;
-        background-color: #e0e0e0;
-        padding: 20px;
-        overflow-y: auto;
-    }
-
-    #map {
-        height: 100%;
-        width: 100%;
-    }
-
-    /* ▼ スマホ対応（横並び → 縦並び） */
-    @media (max-width: 768px) {
         .container {
-            flex-direction: column;
-            height: calc(100% - 100px);
+            display: flex;
+            flex-direction: row;
+            height: calc(100% - 100px); /* header + footer */
         }
 
         .map-area {
-            flex: none;
-            height: 70vh;
+            flex: 2;
+            background-color: #f0f0f0;
         }
 
         .info-area {
-            flex: none;
-            height: 30vh;
-            padding: 10px;
-            font-size: 0.9em;
+            flex: 1;
+            background-color: #e0e0e0;
+            padding: 20px;
+            overflow-y: auto;
         }
 
         #map {
             height: 100%;
+            width: 100%;
         }
-    }
-</style>
+
+        /* ▼ スマホ対応（横並び → 縦並び） */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .map-area {
+                flex: none;
+                height: 70vh;
+            }
+
+            .info-area {
+                flex: none;
+                height: 30vh;
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            #map {
+                height: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -101,7 +102,7 @@
         都市地域デザイン学研究室
     </footer>
 
-    <script script async defer 
+    <script async defer 
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHARZBVr3rzCr_ejyqvMVxoU-V9VfKnfw&language=ja&callback=initMap">
     </script>
     <script src="./map_eva.js"></script>

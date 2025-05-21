@@ -49,10 +49,11 @@
             width: 100%;
         }
 
-        @media (max-width: 370px) {
+        @media (max-width: 768px) {
             .container {
-                flex-direction: column;
-            }
+                 flex-direction: column;
+                height: 100%;
+        }
 
             .map-area {
                 flex: none;
@@ -67,11 +68,10 @@
                 overflow-y: auto; /* 内容が多くなってもスクロール可 */
             }
 
-
             #map {
                 height: 100%;
-             }
-        }
+            }
+}
         
     </style>
 </head>

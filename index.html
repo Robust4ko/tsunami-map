@@ -62,26 +62,45 @@
 
         /* ▼ スマホ対応（横並び → 縦並び） */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
+    /* ヘッダー圧縮 */
+    header {
+        padding: 10px;
+    }
 
-            .map-area {
-                flex: none;
-                height: 60vh;
-            }
+    header h1 {
+        font-size: 1.2em;
+        margin: 0;
+    }
 
-            .info-area {
-                flex: none;
-                height: 20vh;
-                padding: 10px;
-                font-size: 0.9em;
-            }
+    header p {
+        font-size: 0.8em;
+        margin: 5px 0 0 0;
+    }
 
-            #map {
-                height: 100%;
-            }
-        }
+    /* レイアウト縦並び */
+    .container {
+        flex-direction: column;
+        height: calc(100% - 80px); /* 圧縮後のヘッダー+フッター想定 */
+    }
+
+    .map-area {
+        flex: none;
+        height: 68vh;
+    }
+
+    .info-area {
+        flex: none;
+        height: 30vh;
+        padding: 10px;
+        font-size: 0.9em;
+        overflow-y: auto;
+    }
+
+    #map {
+        height: 100%;
+    }
+}
+
     </style>
 </head>
 <body>

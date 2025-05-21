@@ -87,13 +87,42 @@ function addAllDestinationMarkers() {
     });
 }
 
+
 function setStartPoint(location) {
+    // ポリゴンとの交差チェック（浸水域内かどうか）
+    let isInsideTsunami = false;
+
+    map.data.forEach(function(feature) {
+        const geometry = feature.getGeometry();
+        if (geometry.getType() === 'MultiPolygon' || geometry.getType() === 'Polygon') {
+            geometry.getArray().forEach(polygon => {
+                if (google.maps.geometry.poly.containsLocation(location, polygon)) {
+                    isInsideTsunami = true;
+                }
+            });
+        }
+    });
+
+    if (!isInsideTsunami) {
+        displayMessage("この地点は津波浸水想定区域外です。");
+        if (startMarker) startMarker.setMap(null); // 既存マーカー削除
+        startMarker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "クリック地点"
+        });
+        directionsRenderer.setDirections({ routes: [] }); // ルートをクリア
+        return;
+    }
+
+    // 通常の処理（浸水域内の場合）
     if (startMarker) startMarker.setMap(null);
     startMarker = new google.maps.Marker({
         position: location,
         map: map,
         title: "スタート地点"
     });
+
     findClosestPoint(location);
 }
 

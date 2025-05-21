@@ -48,6 +48,22 @@
             height: 100%;
             width: 100%;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .map-area, .info-area {
+                flex: none;
+                height: 50vh;  /* 地図と情報をそれぞれ画面の半分に */
+            }
+
+            #map {
+                height: 100%;
+             }
+        }
+        
     </style>
 </head>
 <body>

@@ -54,10 +54,19 @@
                 flex-direction: column;
             }
 
-            .map-area, .info-area {
+            .map-area {
                 flex: none;
-                height: 50vh;  /* 地図と情報をそれぞれ画面の半分に */
+                height: 70vh; /* 地図エリアを広く */
             }
+
+            .info-area {
+                flex: none;
+                height: 30vh; /* 情報エリアを小さく */
+                padding: 10px;
+                font-size: 0.9em;
+                overflow-y: auto; /* 内容が多くなってもスクロール可 */
+            }
+
 
             #map {
                 height: 100%;

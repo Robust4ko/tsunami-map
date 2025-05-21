@@ -4,81 +4,82 @@
     <meta charset="UTF-8">
     <title>津波避難シミュレーション</title>
     <style>
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-
-    header {
-        background-color: #00bfff;
-        color: white;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .container {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .map-area {
-        flex: 2;
-        background-color: #f0f0f0;
-    }
-
-    .info-area {
-        flex: 1;
-        background-color: #e0e0e0;
-        padding: 20px;
-        overflow-y: auto;
-    }
-
-    footer {
-        background-color: white;
-        color: gray;
-        text-align: center;
-        padding: 10px;
-    }
-
-    #map {
-        width: 100%;
-        height: 100%;
-    }
-
-    /* ▼ モバイル対応（縦並び） */
-    @media (max-width: 768px) {
-        .container {
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
             flex-direction: column;
-            flex: none;
+        }
+
+        header {
+            background-color: #00bfff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+        }
+
+        header p {
+            font-size: 1em;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
         }
 
         .map-area {
-            height: 40vh;
+            flex: 2;
+            background-color: #f0f0f0;
         }
 
         .info-area {
-            height: 30vh;
-            padding: 10px;
-            font-size: 0.9em;
-        }
-
-        footer {
-            height: auto;
+            flex: 1;
+            background-color: #e0e0e0;
+            padding: 20px;
         }
 
         #map {
             height: 100%;
+            width: 100%;
         }
-    }
-</style>
+
+        footer {
+            background-color: white;
+            color: gray;
+            text-align: center;
+            padding: 10px;
+        /* 位置固定は削除 */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .map-area {
+                flex: none;
+                height: 40vh; /* 地図を40%に */
+            }
+
+            .info-area {
+                flex: none;
+                height: 30vh; /* 情報エリアを30%に */
+                padding: 10px;
+                font-size: 0.9em;
+                overflow-y: auto;
+            }
+
+            #map {
+                height: 100%;
+            }
+            }
+    </style>
 </head>
 <body>
     <header>

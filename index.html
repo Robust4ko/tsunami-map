@@ -62,37 +62,35 @@
 
         /* ▼ スマホ対応（横並び → 縦並び） */
         @media (max-width: 768px) {
-    /* ヘッダー圧縮 */
+    /* ヘッダーさらに圧縮 */
     header {
-        padding: 10px;
+        padding: 6px 10px;
     }
 
     header h1 {
-        font-size: 1.2em;
+        font-size: 1em;
         margin: 0;
     }
 
     header p {
-        font-size: 0.8em;
-        margin: 5px 0 0 0;
+        font-size: 0.75em;
+        margin: 3px 0 0 0;
     }
 
-    /* レイアウト縦並び */
+    /* レイアウト縦並び＋高さ最適化 */
     .container {
         flex-direction: column;
-        height: calc(100% - 80px); /* 圧縮後のヘッダー+フッター想定 */
+        height: calc(100% - 80px); /* header + footer 合わせて */
     }
 
     .map-area {
-        flex: none;
-        height: 68vh;
+        height: 72vh;
     }
 
     .info-area {
-        flex: none;
-        height: 30vh;
-        padding: 10px;
-        font-size: 0.9em;
+        height: 25vh;
+        padding: 8px;
+        font-size: 0.85em;
         overflow-y: auto;
     }
 

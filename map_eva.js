@@ -146,7 +146,8 @@ function findClosestPoint(origin) {
                 }
 
                 const closestDestination = nearbyDestinations[closestIndex];
-                displayMessage("最短の避難先: " + closestDestination.name);
+                const distanceText = distances[closestIndex].distance.text;
+                displayMessage(`${closestDestination.name}（${distanceText}）`);
                 drawRoute(origin, closestDestination.location);
             } else {
                 displayMessage("エラー: " + status);

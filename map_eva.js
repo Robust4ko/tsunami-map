@@ -146,8 +146,8 @@ function findClosestPoint(origin) {
                 }
 
                 const closestDestination = nearbyDestinations[closestIndex];
-                const distanceText = distances[closestIndex].distance.text;
-                displayMessage(`${closestDestination.name}（${distanceText}）`);
+                const distanceMeters = distances[closestIndex].distance.value; // ← 常に数値（単位: m）
+                displayMessage(`${closestDestination.name}（${distanceMeters} m）`);
                 drawRoute(origin, closestDestination.location);
             } else {
                 displayMessage("エラー: " + status);

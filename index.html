@@ -60,46 +60,6 @@
             width: 100%;
         }
 
-        /* ▼ スマホ対応（横並び → 縦並び） */
-        @media (max-width: 768px) {
-        /* ヘッダーさらに圧縮 */
-        header {
-            padding: 6px 10px;
-        }
-
-        header h1 {
-            font-size: 1em;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 0.75em;
-            margin: 3px 0 0 0;
-        }
-
-        /* レイアウト縦並び＋高さ最適化 */
-        .container {
-            flex-direction: column;
-            height: calc(100% - 80px); /* header + footer 合わせて */
-        }
-
-        .map-area {
-            height: 72vh;
-        }
-
-        .info-area {
-            max-height: 15vh;
-            padding: 8px;
-            font-size: 0.85em;
-            overflow-y: auto;  
-            line-height: 1.2;
-        }
-
-        #map {
-            height: 100%;
-        }
-        }
-
         .info-area button {
             display: block;
             width: 100%;
@@ -115,6 +75,51 @@
 
         .info-area button:hover {
             background-color: #009acc;
+        }
+
+        /* ▼ スマホ対応（横並び → 縦並び） */
+        @media (max-width: 768px) {
+        /* ヘッダーさらに圧縮 */
+            header {
+                padding: 6px 10px;
+            }
+
+            header h1 {
+                font-size: 1em;
+                margin: 0;
+            }
+
+            header p {
+                font-size: 0.75em;
+                margin: 3px 0 0 0;
+            }
+
+            /* レイアウト縦並び＋高さ最適化 */
+            .container {
+                flex-direction: column;
+                height: calc(100% - 80px); /* header + footer 合わせて */
+            }
+
+            .map-area {
+                height: 72vh;
+            }
+
+            .info-area {
+                max-height: 15vh;
+                padding: 8px;
+                font-size: 0.85em;
+                overflow-y: auto;  
+                line-height: 1.2;
+            }
+
+            #map {
+                height: 100%;
+            }
+
+            footer {
+                padding: 6px;
+                font-size: 0.75em;
+            }
         }
     </style>
 </head>

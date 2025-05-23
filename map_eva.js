@@ -173,4 +173,28 @@ function drawRoute(origin, destination) {
     );
 }
 
+function useCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const latLng = new google.maps.LatLng(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+                setStartPoint(latLng);
+            },
+            function(error) {
+                displayMessage("現在地の取得に失敗しました: " + error.message);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            }
+        );
+    } else {
+        displayMessage("このブラウザは位置情報をサポートしていません。");
+    }
+}
+
 window.initMap = initMap;

@@ -62,43 +62,59 @@
 
         /* ▼ スマホ対応（横並び → 縦並び） */
         @media (max-width: 768px) {
-    /* ヘッダーさらに圧縮 */
-    header {
-        padding: 6px 10px;
-    }
+        /* ヘッダーさらに圧縮 */
+        header {
+            padding: 6px 10px;
+        }
 
-    header h1 {
-        font-size: 1em;
-        margin: 0;
-    }
+        header h1 {
+            font-size: 1em;
+            margin: 0;
+        }
 
-    header p {
-        font-size: 0.75em;
-        margin: 3px 0 0 0;
-    }
+        header p {
+            font-size: 0.75em;
+            margin: 3px 0 0 0;
+        }
 
-    /* レイアウト縦並び＋高さ最適化 */
-    .container {
-        flex-direction: column;
-        height: calc(100% - 80px); /* header + footer 合わせて */
-    }
+        /* レイアウト縦並び＋高さ最適化 */
+        .container {
+            flex-direction: column;
+            height: calc(100% - 80px); /* header + footer 合わせて */
+        }
 
-    .map-area {
-        height: 72vh;
-    }
+        .map-area {
+            height: 72vh;
+        }
 
-    .info-area {
-        max-height: 15vh;
-        padding: 8px;
-        font-size: 0.85em;
-        overflow-y: auto;
-    }
+        .info-area {
+            max-height: 15vh;
+            padding: 8px;
+            font-size: 0.85em;
+            overflow-y: auto;
+        }
 
-    #map {
-        height: 100%;
-    }
-}
+        #map {
+            height: 100%;
+        }
+        }
 
+        .info-area button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .info-area button:hover {
+            background-color: #009acc;
+        }
     </style>
 </head>
 <body>
@@ -112,6 +128,7 @@
         <div class="info-area">
             <h2>最短の避難先：</h2>
             <p id="nearest-destination">クリックして確認してください</p>
+            <button onclick="useCurrentLocation()">現在地から避難する</button>
         </div>
     </div>
 
